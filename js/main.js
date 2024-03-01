@@ -36,9 +36,17 @@
 
 	};
 
-
 	var counter = function() {
 		$('.js-counter').countTo({
+			 formatter: function (value, options) {
+	      return value.toFixed(options.decimals);
+	    },
+		});
+	};
+
+	var counterForRealNumber = function() {
+		$('.js-counter-real-number').countTo({
+			decimals: 1,
 			 formatter: function (value, options) {
 	      return value.toFixed(options.decimals);
 	    },
@@ -290,6 +298,7 @@
 	$(function(){
 		fullHeight();
 		counter();
+		counterForRealNumber();
 		counterWayPoint();
 		contentWayPoint();
 		burgerMenu();
